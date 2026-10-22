@@ -1,4 +1,3 @@
-
 import './App.css'
 
 import {
@@ -14,14 +13,12 @@ import {
   SiFirebase,
 } from 'react-icons/si'
 
-
 import {
   FaGithub,
   FaLinkedin,
   FaInstagram,
   FaEnvelope,
 } from 'react-icons/fa'
-
 
 const tecnologias = [
   { nome: 'React', Icone: SiReact, posicao: 'tech-1', cor: '#61dafb' },
@@ -92,18 +89,18 @@ const contatos = [
 
 function TechOrbit() {
   return (
-    <div className="tech-system">
-      <div className="orbit orbit-outer"></div>
-      <div className="orbit orbit-middle"></div>
-      <div className="orbit orbit-inner"></div>
+    <div className="tech-system" aria-label="Tecnologias e ferramentas">
+      <div className="orbit orbit-outer" aria-hidden="true"></div>
+      <div className="orbit orbit-middle" aria-hidden="true"></div>
+      <div className="orbit orbit-inner" aria-hidden="true"></div>
 
-      <div className="orbit-ellipse ellipse-one"></div>
-      <div className="orbit-ellipse ellipse-two"></div>
+      <div className="orbit-ellipse ellipse-one" aria-hidden="true"></div>
+      <div className="orbit-ellipse ellipse-two" aria-hidden="true"></div>
 
-      <div className="orbit-line line-horizontal"></div>
-      <div className="orbit-line line-vertical"></div>
+      <div className="orbit-line line-horizontal" aria-hidden="true"></div>
+      <div className="orbit-line line-vertical" aria-hidden="true"></div>
 
-      <div className="orbit-core">
+      <div className="orbit-core" aria-hidden="true">
         <span>{'</>'}</span>
       </div>
 
@@ -113,6 +110,7 @@ function TechOrbit() {
           className={`tech-icon ${posicao}`}
           style={{ '--tech-color': cor }}
           title={nome}
+          aria-label={nome}
         >
           <Icone aria-hidden="true" />
         </div>
@@ -128,8 +126,8 @@ function App() {
       <div className="eclipse" aria-hidden="true"></div>
 
       <header className="navbar">
-        <a href="#inicio" className="brand">
-          <span className="brand-icon">✦</span>
+        <a href="#inicio" className="brand" aria-label="Voltar ao início">
+          <span className="brand-icon" aria-hidden="true">✦</span>
           <span>Stolem.dev</span>
         </a>
 
@@ -140,22 +138,20 @@ function App() {
           <a href="#contato">Contato</a>
         </nav>
 
-        
-<div className="social-links">
-  {contatos.map(({ nome, url, Icone, externo }) => (
-    <a
-      key={nome}
-      href={url}
-      target={externo ? '_blank' : undefined}
-      rel={externo ? 'noopener noreferrer' : undefined}
-      aria-label={`Acessar ${nome}`}
-      title={nome}
-    >
-      <Icone aria-hidden="true" />
-    </a>
-  ))}
-</div>
-
+        <div className="social-links" aria-label="Redes sociais">
+          {contatos.map(({ nome, url, Icone, externo }) => (
+            <a
+              key={nome}
+              href={url}
+              target={externo ? '_blank' : undefined}
+              rel={externo ? 'noopener noreferrer' : undefined}
+              aria-label={`Acessar ${nome}`}
+              title={nome}
+            >
+              <Icone aria-hidden="true" />
+            </a>
+          ))}
+        </div>
       </header>
 
       <main>
@@ -174,16 +170,14 @@ function App() {
             </h1>
 
             <p>
-              Olá, eu sou Pedro! Estudante de Análise e
-              Desenvolvimento de Sistemas, com experiência
-              em tecnologia e automação industrial.
-              Explorando novas possibilidades através
-              da programação.
+              Olá, eu sou Pedro! Estudante de Análise e Desenvolvimento de
+              Sistemas, com experiência em tecnologia e automação industrial.
+              Explorando novas possibilidades através da programação.
             </p>
 
             <div className="hero-actions">
               <a href="#projetos" className="primary-btn">
-                Explorar projetos <span>↗</span>
+                Explorar projetos <span aria-hidden="true">↗</span>
               </a>
 
               <a href="#sobre" className="secondary-btn">
@@ -201,11 +195,10 @@ function App() {
           <span className="section-label">01 / SOBRE MIM</span>
           <h2>Conheça minha trajetória.</h2>
           <p>
-            Sou estudante de Análise e Desenvolvimento de Sistemas.
-            Minha experiência profissional envolve automação
-            industrial, projetos técnicos e soluções tecnológicas.
-            Atualmente, estou expandindo meus conhecimentos
-            em desenvolvimento de software.
+            Sou estudante de Análise e Desenvolvimento de Sistemas. Minha
+            experiência profissional envolve automação industrial, projetos
+            técnicos e soluções tecnológicas. Atualmente, estou expandindo meus
+            conhecimentos em desenvolvimento de software.
           </p>
         </section>
 
@@ -246,63 +239,60 @@ function App() {
             ))}
           </div>
         </section>
-        
-<section className="contact-section" id="contato">
-  <div className="contact-heading">
-    <span className="section-label">04 / CONTATO</span>
 
-    <h2>
-      Vamos construir algo
-      <br />
-      <span>incrível juntos?</span>
-    </h2>
+        <section className="contact-section" id="contato">
+          <div className="contact-heading">
+            <span className="section-label">04 / CONTATO</span>
 
-    <p>
-      Tem alguma ideia, oportunidade ou projeto em mente?
-      Estou sempre aberto a novas conexões e desafios.
-      Entre em contato pelos canais abaixo.
-    </p>
-  </div>
+            <h2>
+              Vamos construir algo
+              <br />
+              <span>incrível juntos?</span>
+            </h2>
 
-  <div className="contact-grid">
-    {contatos.map((contato) => {
-      const { nome, usuario, descricao, url, Icone, externo } = contato
-
-      return (
-        <a
-          href={url}
-          key={nome}
-          className="contact-card"
-          target={externo ? '_blank' : undefined}
-          rel={externo ? 'noopener noreferrer' : undefined}
-        >
-          <div className="contact-card-top">
-            <div className="contact-icon">
-              <Icone aria-hidden="true" />
-            </div>
-
-            <span className="contact-arrow" aria-hidden="true">
-              ↗
-            </span>
+            <p>
+              Tem alguma ideia, oportunidade ou projeto em mente? Estou sempre
+              aberto a novas conexões e desafios. Entre em contato pelos canais
+              abaixo.
+            </p>
           </div>
 
-          <h3>{nome}</h3>
-          <span className="contact-user">{usuario}</span>
-          <p>{descricao}</p>
-        </a>
-      )
-    })}
-  </div>
+          <div className="contact-grid">
+            {contatos.map((contato) => {
+              const { nome, usuario, descricao, url, Icone, externo } = contato
 
-  <div className="contact-bottom">
-    <span>✦ Disponível para novas conexões</span>
+              return (
+                <a
+                  href={url}
+                  key={nome}
+                  className="contact-card"
+                  target={externo ? '_blank' : undefined}
+                  rel={externo ? 'noopener noreferrer' : undefined}
+                >
+                  <div className="contact-card-top">
+                    <div className="contact-icon">
+                      <Icone aria-hidden="true" />
+                    </div>
 
-    <a href="mailto:stolemp@outlook.com">
-      Enviar um e-mail →
-    </a>
-  </div>
-</section>
+                    <span className="contact-arrow" aria-hidden="true">↗</span>
+                  </div>
 
+                  <h3>{nome}</h3>
+                  <span className="contact-user">{usuario}</span>
+                  <p>{descricao}</p>
+                </a>
+              )
+            })}
+          </div>
+
+          <div className="contact-bottom">
+            <span>✦ Disponível para novas conexões</span>
+
+            <a href="mailto:stolemp@outlook.com">
+              Enviar um e-mail →
+            </a>
+          </div>
+        </section>
       </main>
 
       <footer className="footer">
